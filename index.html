@@ -640,7 +640,6 @@ TOTAL: 509/512 caracteres coincidem (99.4%)</pre>
       b.classList.toggle('is-active', active);
       b.setAttribute('aria-pressed', active ? 'true' : 'false');
     });
-    try{ localStorage.setItem('erthos-lang', lang); }catch(e){}
   }
 
   document.querySelectorAll('.lang-btn').forEach(function(b){
@@ -649,13 +648,7 @@ TOTAL: 509/512 caracteres coincidem (99.4%)</pre>
 
   var fromQuery;
   try{ fromQuery = new URLSearchParams(location.search).get('lang'); }catch(e){}
-
-  var initial = null;
-  if(fromQuery === 'en' || fromQuery === 'pt') initial = fromQuery;
-  if(!initial){
-    try{ initial = localStorage.getItem('erthos-lang'); }catch(e){}
-  }
-  if(initial === 'en') setLang('en');
+  if(fromQuery === 'en') setLang('en');
 })();
 </script>
 </body>
