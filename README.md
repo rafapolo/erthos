@@ -24,6 +24,7 @@ parece ter motivado a escolha do poema.
 | [`original.png`](./original.png) | Scan da página publicada em *Código* n.º 1 (1974). |
 | [`poema.md`](./poema.md) | Transcrição do poema cifrado, lado a lado com o soneto de Mallarmé. |
 | [`DECIFRACAO.md`](./DECIFRACAO.md) | Documentação completa: quem foi Erthos, o processo de decifração linha a linha, a tabela de substituição, os resultados e a alusão ao cisne/signo de Mallarmé. |
+| [`soneto_alfanumerico.f`](./soneto_alfanumerico.f) | Reconstrução hipotética em Fortran IV, no estilo da época, de como o programa de Erthos poderia ter sido. O original não sobreviveu. |
 
 
 ## O achado, resumido
