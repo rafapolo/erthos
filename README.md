@@ -67,7 +67,7 @@ Fortran/PL-1 original de Erthos, que não sobreviveu (ao menos não nas fontes
 disponíveis). Ver a seção 5 de `DECIFRACAO.md` para as limitações honestas
 do que conseguimos (e não conseguimos) provar.
 
-## Os dois poemas, como imagem (steganos)
+### Os dois poemas, como imagem (steganos)
 
 <img src="./poema-original.steganos.png" alt="poema-original.steganos.png" width="150">
 <img src="./alfanumerico.steganos.png" alt="alfanumerico.steganos.png" width="150">
