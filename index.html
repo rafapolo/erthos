@@ -153,7 +153,7 @@
   .files a:hover{text-decoration:underline}
   .files span{display:block; color:var(--ink-soft); font-size:15.5px; margin-top:2px}
 
-  footer{margin-top:80px; padding-top:24px; border-top:1px solid var(--border); color:var(--ink-soft); font-size:14.5px}
+  footer{margin-top:48px; padding-top:24px; border-top:1px solid var(--border); color:var(--ink-soft); font-size:14.5px}
   footer a{color:var(--ink-soft)}
   a{color:var(--accent)}
 
@@ -161,6 +161,7 @@
     font-size:15px; color:var(--ink-soft); border-left:3px solid var(--border);
     padding-left:14px; margin-top:18px;
   }
+  .poem + .note{margin-bottom:26px}
   .poem{
     font-style:italic; margin:26px 0; padding:20px 24px;
     background:var(--card); border:1px solid var(--border); border-radius:6px;
@@ -172,7 +173,34 @@
   }
   .poem .tr{color:var(--ink-soft); font-style:normal; font-size:15.5px}
   @media (max-width:640px){
-    .poem p:not(.note){grid-template-columns:1fr; gap:1px; padding:0 0 11px}
+    .poem p:not(.note){gap:2px 14px; padding:5px 0; font-size:15px; line-height:1.45}
+    .poem .tr{font-size:13.5px}
+  }
+  @media (max-width:640px){
+    body{font-size:17px}
+    .wrap{padding:36px 16px 96px}
+    header.hero{padding:12px 0 28px}
+    .lede{font-size:18px}
+    section{margin-top:48px}
+    .card{padding:18px 16px}
+    .poem{padding:16px}
+    pre{font-size:13px; padding:14px}
+    .cipher{font-size:14px}
+    .grid-table{grid-template-columns:repeat(auto-fill, minmax(52px,1fr))}
+    table.stack, table.stack tbody{display:block}
+    table.stack thead{display:none}
+    table.stack tr{
+      display:grid; grid-template-columns:28px minmax(0,1fr); column-gap:8px;
+      padding:12px 0; border-bottom:1px solid var(--border);
+    }
+    table.stack td{border:0; padding:2px 0; grid-column:2}
+    table.stack td.lineno{grid-column:1; grid-row:1 / span 5; width:auto; padding-top:3px}
+    table.stack td[data-label]{padding-top:6px}
+    table.stack td[data-label]::before{
+      content:attr(data-label); display:block;
+      font-family:'Atkinson Hyperlegible Mono', monospace; font-size:12px; font-style:normal;
+      text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-soft);
+    }
   }
 </style>
 </head>
@@ -239,8 +267,8 @@
       <p>Fantôme qu'à ce lieu son pur éclat assigne, <span class="tr">Fantasma que a este lugar seu puro brilho designa,</span></p>
       <p>Il s'immobilise au songe froid de mépris <span class="tr">Ele se imobiliza no sonho frio do desprezo</span></p>
       <p>Que vêt parmi l'exil inutile le Cygne. <span class="tr">Que veste, em meio ao exílio inútil, o Cigno.</span></p>
-      <p class="note" style="margin-top:14px">Stéphane Mallarmé, "Le vierge, le vivace et le bel aujourd'hui" (1885) — original em itálico à esquerda, tradução livre ao lado. No último verso, "Cigno" é desvio intencional de "Cisne" — aproximação sonora de "Signo", ecoando o trocadilho <i>cygne/signe</i> discutido abaixo.</p>
     </div>
+    <p class="note">Stéphane Mallarmé, "Le vierge, le vivace et le bel aujourd'hui" (1885) — original em itálico à esquerda, tradução livre ao lado. No último verso, "Cigno" é desvio intencional de "Cisne" — aproximação sonora de "Signo", ecoando o trocadilho <i>cygne/signe</i> discutido abaixo.</p>
 
     <div class="two-col">
       <div class="card">
@@ -267,7 +295,7 @@
 
   <section id="lado-a-lado">
     <h2>Lado a lado</h2>
-    <table>
+    <table class="stack">
       <thead><tr><th></th><th>Mallarmé (1885)</th><th>Soneto Alfanumérico (1974)</th></tr></thead>
       <tbody id="compare-body"></tbody>
     </table>
@@ -318,31 +346,31 @@ TOTAL: 509/512 caracteres coincidem (99.4%)</pre>
     terceiro não é divergência de ninguém — é o alfabeto de 23 símbolos batendo
     no teto (verso 4). A contagem honesta é de <b>duas</b> divergências, não
     três; e nenhuma das duas é comprovadamente &ldquo;erro&rdquo;.</p>
-    <table>
+    <table class="stack">
       <thead>
         <tr><th class="lineno">v.</th><th>Mallarmé</th><th>a cifra pede</th><th>a página imprime</th><th>o que a página diz</th></tr>
       </thead>
       <tbody>
         <tr>
           <td class="lineno">4</td>
-          <td>fui<b>!</b></td>
-          <td class="cipher">;12!</td>
-          <td class="cipher">;12</td>
-          <td>o <code>!</code> não é impresso — não é lapso, é limite do alfabeto: o glifo <code>!</code> já está ocupado pela letra <b>b</b></td>
+          <td data-label="Mallarmé">fui<b>!</b></td>
+          <td data-label="a cifra pede" class="cipher">;12!</td>
+          <td data-label="a página imprime" class="cipher">;12</td>
+          <td data-label="o que a página diz">o <code>!</code> não é impresso — não é lapso, é limite do alfabeto: o glifo <code>!</code> já está ocupado pela letra <b>b</b></td>
         </tr>
         <tr>
           <td class="lineno">10</td>
-          <td><b>Par</b> l'espace</td>
-          <td class="cipher">&amp;A¢</td>
-          <td class="cipher">&amp;A&gt;</td>
-          <td>&ldquo;<b>Pas</b> l'espace&rdquo; — <code>&gt;</code> vale <b>s</b>, <code>¢</code> vale <b>r</b></td>
+          <td data-label="Mallarmé"><b>Par</b> l'espace</td>
+          <td data-label="a cifra pede" class="cipher">&amp;A¢</td>
+          <td data-label="a página imprime" class="cipher">&amp;A&gt;</td>
+          <td data-label="o que a página diz">&ldquo;<b>Pas</b> l'espace&rdquo; — <code>&gt;</code> vale <b>s</b>, <code>¢</code> vale <b>r</b></td>
         </tr>
         <tr>
           <td class="lineno">14</td>
-          <td><b>parmi</b> l'exil</td>
-          <td class="cipher">&amp;A¢72</td>
-          <td class="cipher">&amp;A¢72-</td>
-          <td>&ldquo;<b>parmit</b>&rdquo; — um <code>-</code> a mais, e <code>-</code> vale <b>t</b></td>
+          <td data-label="Mallarmé"><b>parmi</b> l'exil</td>
+          <td data-label="a cifra pede" class="cipher">&amp;A¢72</td>
+          <td data-label="a página imprime" class="cipher">&amp;A¢72-</td>
+          <td data-label="o que a página diz">&ldquo;<b>parmit</b>&rdquo; — um <code>-</code> a mais, e <code>-</code> vale <b>t</b></td>
         </tr>
       </tbody>
     </table>
@@ -428,6 +456,11 @@ TOTAL: 509/512 caracteres coincidem (99.4%)</pre>
     </ul>
   </section>
 
+  <figure style="margin-top:64px">
+    <img src="erthos.png" alt="Erthos Albino de Souza" style="max-width:400px" loading="lazy">
+    <figcaption>Erthos Albino de Souza (1932–2000)</figcaption>
+  </figure>
+
   <footer>
     <p>Fontes: <a href="https://pt.wikipedia.org/wiki/Erthos_Albino_de_Souza">Erthos Albino de Souza — Wikipédia</a> ·
     <a href="https://revistaacrobata.com.br/acrobata/artigo/codigo-revista-codigo-site/">Revista Código — Revista Acrobata</a> ·
@@ -435,11 +468,6 @@ TOTAL: 509/512 caracteres coincidem (99.4%)</pre>
     lista completa em <a href="DECIFRACAO.md#7-fontes">DECIFRACAO.md</a>.</p>
     <p>Código e documentação em <a href="https://github.com/rafapolo/erthos">github.com/rafapolo/erthos</a>.</p>
   </footer>
-
-  <figure style="margin-top:32px">
-    <img src="erthos.png" alt="Erthos Albino de Souza" style="max-width:200px" loading="lazy">
-    <figcaption>Erthos Albino de Souza (1932–2000)</figcaption>
-  </figure>
 
 </div>
 
