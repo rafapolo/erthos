@@ -1,6 +1,5 @@
 # Soneto Alfanumérico, de Erthos Albino de Souza — a obra e a nossa decifração
 
-Data: setembro de 2026.
 Arquivos deste projeto: `original.png` (scan da página), `poema.md` (transcrição
 e comparação lado a lado), `soneto_alfanumerico.rb` (algoritmo em Ruby).
 
