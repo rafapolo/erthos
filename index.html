@@ -164,8 +164,15 @@
     font-style:italic; margin:26px 0; padding:20px 24px;
     background:var(--card); border:1px solid var(--border); border-radius:6px;
   }
-  .poem p{margin:0 0 4px}
-  .poem .tr{display:block; color:var(--ink-soft); font-style:normal; font-size:14px; margin:2px 0 10px}
+  .poem p:not(.note){
+    margin:0; padding:3px 0;
+    display:grid; grid-template-columns:1fr 1fr; gap:4px 30px;
+    align-items:baseline;
+  }
+  .poem .tr{color:var(--ink-soft); font-style:normal; font-size:14px}
+  @media (max-width:640px){
+    .poem p:not(.note){grid-template-columns:1fr; gap:1px; padding:0 0 11px}
+  }
 </style>
 </head>
 <body>
@@ -231,7 +238,7 @@
       <p>Fantôme qu'à ce lieu son pur éclat assigne, <span class="tr">Fantasma que a este lugar seu puro brilho designa,</span></p>
       <p>Il s'immobilise au songe froid de mépris <span class="tr">Ele se imobiliza no sonho frio do desprezo</span></p>
       <p>Que vêt parmi l'exil inutile le Cygne. <span class="tr">Que veste, em meio ao exílio inútil, o Cigno.</span></p>
-      <p class="note" style="margin-top:14px">Stéphane Mallarmé, "Le vierge, le vivace et le bel aujourd'hui" (1885) — original em itálico, tradução livre logo abaixo de cada verso. No último verso, "Cigno" é desvio intencional de "Cisne" — aproximação sonora de "Signo", ecoando o trocadilho <i>cygne/signe</i> discutido abaixo.</p>
+      <p class="note" style="margin-top:14px">Stéphane Mallarmé, "Le vierge, le vivace et le bel aujourd'hui" (1885) — original em itálico à esquerda, tradução livre ao lado. No último verso, "Cigno" é desvio intencional de "Cisne" — aproximação sonora de "Signo", ecoando o trocadilho <i>cygne/signe</i> discutido abaixo.</p>
     </div>
 
     <div class="two-col">
