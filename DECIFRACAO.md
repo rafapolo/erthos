@@ -256,6 +256,57 @@ procedimento algorítmico) — essa é a pergunta que ficaria para uma próxima
 etapa de pesquisa, idealmente em arquivo com acesso aos números originais da
 revista *Código* ou a papéis pessoais de Erthos.
 
+### 5.1. Uma conjectura sobre os dígitos (e sobre o `k`)
+
+Sobre *como* Erthos chegou à tabela, há um fragmento que talvez tenha
+explicação — e que vale registrar como conjectura falsificável, não como
+achado.
+
+Seis letras recebem dígito como símbolo: `u→1`, `i→2`, `o→3`, `j→4`, `l→6`,
+`m→7`. Elas não estão espalhadas pelo alfabeto: são vizinhas no teclado. São o
+bloco 3×3 sob os dedos indicador, médio e anular da mão direita num QWERTY.
+Numerando as nove teclas em ordem de leitura:
+
+```
+u=1   i=2   o=3
+j=4   k=5   l=6
+m=7   ,=8   .=9
+```
+
+As seis atestadas conferem, todas. E a hipótese faz duas previsões que não
+foram usadas para montá-la:
+
+- o dígito **8** não pode aparecer, porque sua tecla é a vírgula — e a vírgula
+  atravessa a cifra como pontuação literal, nunca precisou de símbolo;
+- o dígito **9** não pode aparecer, pelo mesmo motivo, com o ponto.
+
+Os dígitos ausentes da página são exatamente `0`, `5`, `8`, `9`. O 8 e o 9 são
+a vírgula e o ponto; o 0 não tem tecla no bloco; e o 5 é o `k`, que não ocorre
+em nenhuma palavra do soneto de Mallarmé. Daí a conjectura: **`k` seria `5`**.
+
+Dois freios, ambos sérios:
+
+1. O padrão foi encontrado olhando os dados, não previsto antes deles. Se o
+   layout tivesse sido fixado *a priori*, acertar as seis seria 1 em 720; como
+   o layout foi escolhido depois de ver o resultado, esse número não vale. O
+   que sustenta a conjectura não é o acerto de 6 em 6, é as duas previsões
+   independentes sobre o 8 e o 9.
+2. A hipótese não explica as outras 17 letras. Dispondo os 23 símbolos sobre o
+   teclado, o restante (`q→+`, `w→?`, `e→)`, `a→A`, `s→>`…) não exibe estrutura
+   defensável. Se o teclado explica algo, explica um fragmento — os dígitos — e
+   não a tabela inteira. Pode ser que Erthos tenha atribuído os dígitos por
+   proximidade no teclado e o resto por outro critério; pode ser coincidência
+   num pedaço pequeno.
+
+Para `w` e `z` não há nem isso: caem fora do bloco, e sobram `0`, `8`, `9` mais
+os glifos do conjunto EBCDIC que a página nunca imprime. Nada permite escolher.
+A conjectura é sobre `k`, e só.
+
+Ela é falsificável de duas maneiras: por qualquer outro texto cifrado por
+Erthos que contenha um `k` (o "Tombeau de Mallarmé" de 1975, por exemplo), ou
+por um teclado ou perfuradora documentadamente usados por ele cujo arranjo
+contradiga o bloco acima.
+
 ## 6. O cisne que é signo: a alusão em Mallarmé
 
 Por que Erthos escolheu justo *este* soneto de Mallarmé para submeter ao

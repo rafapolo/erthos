@@ -35,7 +35,9 @@ module SonetoAlfanumerico
   # Tabela de substituição (letra normalizada -> símbolo da página)
   # Reconstruída por alinhamento com os 14 versos de Mallarmé.
   # k, w, z não ocorrem no soneto de Mallarmé e por isso não têm
-  # símbolo atestado (permanecem nil).
+  # símbolo atestado (permanecem nil). Há uma conjectura de que "k"
+  # seria "5" — ver DECIFRACAO.md, 5.1 —, mas conjectura não entra
+  # na tabela: o que não está atestado fica nil.
   # --------------------------------------------------------------
   LETTER_TO_SYMBOL = {
     'a' => 'A', 'b' => '!', 'c' => '"', 'd' => ':', 'e' => ')',
