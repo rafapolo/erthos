@@ -15,8 +15,7 @@ parece ter motivado a escolha do poema.
 <img src="./erthos.png" alt="Erthos Albino de Souza" width="200"><br>
 <sub>Erthos Albino de Souza (1932–2000)</sub>
 
-➜ **[Leia a explicação completa](https://rafapolo.github.io/erthos)** (GitHub Pages
-deste repositório — ou abra [`index.html`](./index.html) direto no navegador).
+➜ **[Leia a explicação completa](https://rafapolo.github.io/erthos)**
 
 ## Conteúdo
 
@@ -25,9 +24,7 @@ deste repositório — ou abra [`index.html`](./index.html) direto no navegador)
 | [`original.png`](./original.png) | Scan da página publicada em *Código* n.º 1 (1974). |
 | [`poema.md`](./poema.md) | Transcrição do poema cifrado, lado a lado com o soneto de Mallarmé. |
 | [`DECIFRACAO.md`](./DECIFRACAO.md) | Documentação completa: quem foi Erthos, o processo de decifração linha a linha, a tabela de substituição, os resultados e a alusão ao cisne/signo de Mallarmé. |
-| [`soneto_alfanumerico.rb`](./soneto_alfanumerico.rb) | Algoritmo em Ruby (`encode`/`decode`) que reproduz a cifra e verifica o resultado contra a página publicada. |
-| [`index.html`](./index.html) | Página única que reúne tudo isso visualmente. |
-| <img src="./poema-original.steganos.png" alt="poema-original.steganos.png" width="80"> <img src="./alfanumerico.steganos.png" alt="alfanumerico.steganos.png" width="80"> | Os dois poemas (o de Mallarmé e o de Erthos) re-codificados como imagem, com [`steganos`](https://github.com/rafapolo/steganos) — nossa própria camada de poesia codificada, em homenagem ao gesto de Erthos. Gerados com [`steganos_pure.rb`](./steganos_pure.rb) (reimplementação do algoritmo original em Ruby puro, sem dependências). |
+
 
 ## O achado, resumido
 
@@ -75,10 +72,8 @@ do que conseguimos (e não conseguimos) provar.
 <img src="./poema-original.steganos.png" alt="poema-original.steganos.png" width="150">
 <img src="./alfanumerico.steganos.png" alt="alfanumerico.steganos.png" width="150">
 
-<sub>Esquerda: o soneto de Mallarmé. Direita: o Soneto Alfanumérico de Erthos.
-Cada imagem é o próprio texto — comprimido e recodificado pixel a pixel com
-<a href="https://github.com/rafapolo/steganos">steganos</a> — não uma
-ilustração dele.</sub>
+Od dois poemas (o de Mallarmé e o de Erthos) re-codificados como imagem, com [`steganos`](https://github.com/rafapolo/steganos) — nossa própria camada de poesia codificada, em homenagem ao gesto de Erthos. Gerados com [`steganos_pure.rb`](./steganos_pure.rb) (reimplementação do algoritmo original em Ruby puro, sem dependências). |
+
 
 ## Fontes
 
