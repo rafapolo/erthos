@@ -647,9 +647,15 @@ TOTAL: 509/512 caracteres coincidem (99.4%)</pre>
     b.addEventListener('click', function(){ setLang(b.getAttribute('data-lang')); });
   });
 
-  var saved;
-  try{ saved = localStorage.getItem('erthos-lang'); }catch(e){}
-  if(saved === 'en') setLang('en');
+  var fromQuery;
+  try{ fromQuery = new URLSearchParams(location.search).get('lang'); }catch(e){}
+
+  var initial = null;
+  if(fromQuery === 'en' || fromQuery === 'pt') initial = fromQuery;
+  if(!initial){
+    try{ initial = localStorage.getItem('erthos-lang'); }catch(e){}
+  }
+  if(initial === 'en') setLang('en');
 })();
 </script>
 </body>
