@@ -60,10 +60,13 @@ sem exceção nas 14 linhas.
 | 11 | Mais non l'horreur du sol où le plumage est pris. | Mas não o horror do solo onde a plumagem está presa. | `7A2> (3( 6''3¢¢)1¢ :1 >36 31 6) &617A¬) )>- &¢2>.` |
 | 12 | Fantôme qu'à ce lieu son pur éclat assigne, | Fantasma que a este lugar seu puro brilho designa, | `;A(-37) +1'A ") 62)1 >3( &1¢ )"6A- A>>2¬(),` |
 | 13 | Il s'immobilise au songe froid de mépris | Ele se imobiliza no sonho frio do desprezo | `26 >'2773!262>) A1 >3(¬) ;¢32: :) 7)&¢2>` |
-| 14 | Que vêt parmi l'exil inutile le Cygne. | Que veste, em meio ao exílio inútil, o Cisne. | `+1) =)- &A¢72- 6')?26 2(1-26) 6) "|¬().` |
+| 14 | Que vêt parmi l'exil inutile le Cygne. | Que veste, em meio ao exílio inútil, o Cigno. | `+1) =)- &A¢72- 6')?26 2(1-26) 6) "|¬().` |
 
 Tradução livre, sem compromisso com métrica ou rima do original — feita apenas
-para dar acesso ao sentido do soneto de Mallarmé a quem não lê francês.
+para dar acesso ao sentido do soneto de Mallarmé a quem não lê francês. No
+verso 14, "Cigno" é desvio intencional de "Cisne" — aproximação sonora de
+"Signo", ecoando o trocadilho *cygne/signe* do original (ver seção sobre
+Mallarmé em `index.html`).
 
 Rodando `ruby soneto_alfanumerico.rb`, a nossa cifra reproduz **509 dos 512**
 caracteres da página (99,4%) a partir do texto de Mallarmé, e localiza as três
