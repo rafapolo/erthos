@@ -147,6 +147,22 @@
     margin-bottom:6px;
   }
 
+  .lang-switch{
+    position:fixed; top:18px; right:18px; z-index:10;
+    display:flex; gap:2px; font-family:'Atkinson Hyperlegible Mono', monospace;
+    font-size:11px; letter-spacing:0.06em;
+    background:var(--card); border:1px solid var(--border); border-radius:20px; padding:3px;
+  }
+  .lang-btn{
+    border:none; background:transparent; color:var(--ink-soft); cursor:pointer;
+    padding:5px 11px; border-radius:16px; font-family:inherit; font-size:inherit; letter-spacing:inherit;
+  }
+  .lang-btn.is-active{background:var(--accent); color:var(--paper)}
+  @media (max-width:640px){
+    .lang-switch{top:10px; right:10px}
+    .lang-btn{padding:4px 9px}
+  }
+
   .files{list-style:none; margin:0; padding:0}
   .files li{padding:10px 0; border-bottom:1px solid var(--border)}
   .files li:last-child{border-bottom:none}
@@ -207,37 +223,41 @@
 </style>
 </head>
 <body>
+<div class="lang-switch" role="group" aria-label="Idioma / Language">
+  <button type="button" class="lang-btn is-active" data-lang="pt" aria-pressed="true">PT</button>
+  <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+</div>
 <div class="wrap">
 
   <header class="hero">
     <div class="mark" aria-hidden="true"></div>
     <h1>SONETO ALFANUMÉRICO</h1>
-    <p class="subtitle"><b>Erthos Albino de Souza</b> · revista <i>Código</i> nº 1 · Salvador, 1974</p>
-    <p class="lede">Em 1974, um engenheiro de minas da Petrobras transformou um soneto de
+    <p class="subtitle" id="i18n-subtitle"><b>Erthos Albino de Souza</b> · revista <i>Código</i> nº 1 · Salvador, 1974</p>
+    <p class="lede" id="i18n-lede">Em 1974, um engenheiro de minas da Petrobras transformou um soneto de
     Mallarmé numa sequência de símbolos datilografados, usando Fortran e PL/1 como
     instrumento poético. Recuperamos a tabela que ele usou — e descobrimos
     por que, entre tantos poemas possíveis, ele escolheu justo este.</p>
   </header>
 
   <section id="artefato">
-    <h2>O artefato</h2>
+    <h2 id="i18n-h2-artefato">O artefato</h2>
     <figure>
       <a href="original.png" target="_blank" rel="noopener">
         <img src="original.png" alt="Página original do Soneto Alfanumérico, revista Código nº1, 1974" loading="lazy">
       </a>
-      <figcaption>Scan da página publicada em <i>Código</i> nº1 (1974) — impressão matricial de computador sobre papel pautado. Clique para ver em tamanho real.</figcaption>
+      <figcaption id="i18n-fig-original">Scan da página publicada em <i>Código</i> nº1 (1974) — impressão matricial de computador sobre papel pautado. Clique para ver em tamanho real.</figcaption>
     </figure>
   </section>
 
   <section id="erthos">
-    <h2>Quem foi Erthos</h2>
-    <p><b>Erthos Albino de Souza</b> (1932–2000) foi um engenheiro de minas baiano
+    <h2 id="i18n-h2-erthos">Quem foi Erthos</h2>
+    <p id="i18n-erthos-p1"><b>Erthos Albino de Souza</b> (1932–2000) foi um engenheiro de minas baiano
     que trabalhou na Petrobras e, em paralelo, se tornou um dos pioneiros
     internacionais da poesia feita com computador. A partir do fim dos anos 1960,
     influenciado pelos experimentos de Pedro Xisto no Canadá, passou a usar Fortran
     e PL/1 — linguagens de cálculo numérico de grandes empresas — como instrumento
     poético, submetendo texto verbal a processos de computação e combinatória.</p>
-    <p>Fundou e financiou sozinho a revista <i>Código</i>, publicada em Salvador
+    <p id="i18n-erthos-p2">Fundou e financiou sozinho a revista <i>Código</i>, publicada em Salvador
     entre 1974 e 1990 (12 números), um dos principais veículos da poesia
     experimental brasileira na esteira de <i>Noigandres</i> e <i>Invenção</i>, com
     colaborações de Augusto de Campos e Décio Pignatari. Antonio Risério descreveu
@@ -246,8 +266,8 @@
   </section>
 
   <section id="mallarme">
-    <h2>O poema por trás: o cisne que é signo</h2>
-    <p>O soneto-fonte é <i>"Le vierge, le vivace et le bel aujourd'hui"</i> (1885),
+    <h2 id="i18n-h2-mallarme">O poema por trás: o cisne que é signo</h2>
+    <p id="i18n-mallarme-p1">O soneto-fonte é <i>"Le vierge, le vivace et le bel aujourd'hui"</i> (1885),
     de Stéphane Mallarmé — às vezes chamado simplesmente de "Le Cygne" pela
     crítica. Ele descreve um cisne preso num lago congelado: quer se libertar com
     um bater de asas, mas as penas estão presas na geleira transparente. O motivo
@@ -270,23 +290,23 @@
       <p>Il s'immobilise au songe froid de mépris <span class="tr">Ele se imobiliza no sonho frio do desprezo</span></p>
       <p>Que vêt parmi l'exil inutile le Cygne. <span class="tr">Que veste, em meio ao exílio inútil, o Cigno.</span></p>
     </div>
-    <p class="note">Stéphane Mallarmé, "Le vierge, le vivace et le bel aujourd'hui" (1885) — original em itálico à esquerda, tradução livre ao lado. No último verso, "Cigno" é desvio intencional de "Cisne" — aproximação sonora de "Signo", ecoando o trocadilho <i>cygne/signe</i> discutido abaixo.</p>
+    <p class="note" id="i18n-note-cigno">Stéphane Mallarmé, "Le vierge, le vivace et le bel aujourd'hui" (1885) — original em itálico à esquerda, tradução livre ao lado. No último verso, "Cigno" é desvio intencional de "Cisne" — aproximação sonora de "Signo", ecoando o trocadilho <i>cygne/signe</i> discutido abaixo.</p>
 
     <div class="two-col">
       <div class="card">
         <span class="badge">cygne</span>
-        <p style="margin:0">cisne — o pássaro preso no gelo, incapaz de voar,
+        <p style="margin:0" id="i18n-card-cygne">cisne — o pássaro preso no gelo, incapaz de voar,
         símbolo tradicional do poeta tomado por paralisia criativa.</p>
       </div>
       <div class="card">
         <span class="badge">signe</span>
-        <p style="margin:0">signo — homófono perfeito de <i>cygne</i> em
+        <p style="margin:0" id="i18n-card-signe">signo — homófono perfeito de <i>cygne</i> em
         francês. O poema sobre um cisne é, ao mesmo tempo, um poema sobre a
         própria natureza do signo linguístico, preso entre o que quer dizer e o
         que consegue dizer.</p>
       </div>
     </div>
-    <p class="note">Esse trocadilho — <i>cygne/signe</i> — é apontado pela
+    <p class="note" id="i18n-note-tetrocadilho">Esse trocadilho — <i>cygne/signe</i> — é apontado pela
     crítica mallarmeana como central ao soneto, não acidental (ver fontes ao
     final). É provavelmente por isso que Erthos escolheu justo este poema: um
     texto já obcecado pela ideia de linguagem-presa-em-signo era o candidato
@@ -296,43 +316,43 @@
   </section>
 
   <section id="lado-a-lado">
-    <h2>Lado a lado</h2>
+    <h2 id="i18n-h2-lado-a-lado">Lado a lado</h2>
     <table class="stack">
-      <thead><tr><th></th><th>Mallarmé (1885)</th><th>Soneto Alfanumérico (1974)</th></tr></thead>
+      <thead><tr><th></th><th>Mallarmé (1885)</th><th id="i18n-th-soneto">Soneto Alfanumérico (1974)</th></tr></thead>
       <tbody id="compare-body"></tbody>
     </table>
   </section>
 
   <section id="processo">
-    <h2>Como deciframos</h2>
+    <h2 id="i18n-h2-processo">Como deciframos</h2>
     <ol class="steps">
-      <li><b>Nada de OCR.</b> Os caracteres especiais de impressora matricial de
+      <li id="i18n-step-1"><b>Nada de OCR.</b> Os caracteres especiais de impressora matricial de
       1974 (<span class="cipher">¢ ¬ & | </span>) são sistematicamente confundidos
       por OCR genérico. Recortamos e ampliamos cada uma das 14 linhas à mão.</li>
-      <li><b>Hipótese: substituição, não permutação.</b> Comparando a primeira
+      <li id="i18n-step-2"><b>Hipótese: substituição, não permutação.</b> Comparando a primeira
       linha com o início de Mallarmé, a ordem das palavras não muda — só a
       aparência de cada caractere. Isso aponta para uma cifra de substituição
       monoalfabética, não para um embaralhamento da ordem.</li>
-      <li><b>Alinhamento verso a verso.</b> Cada uma das 14 linhas foi comparada
+      <li id="i18n-step-3"><b>Alinhamento verso a verso.</b> Cada uma das 14 linhas foi comparada
       palavra por palavra com o soneto de Mallarmé (normalizado: sem acento, sem
       distinção de caixa), anotando o símbolo correspondente a cada letra — e
       usando as repetições de letras como teste de consistência da tabela.</li>
-      <li><b>Verificação algorítmica.</b> A tabela resultante foi implementada em
+      <li id="i18n-step-4"><b>Verificação algorítmica.</b> A tabela resultante foi implementada em
       Ruby e testada automaticamente contra a transcrição da página inteira.</li>
     </ol>
   </section>
 
   <section id="tabela">
-    <h2>A tabela de substituição</h2>
+    <h2 id="i18n-h2-tabela">A tabela de substituição</h2>
     <div class="grid-table" id="table-grid"></div>
-    <p class="note">Acentos são removidos antes da substituição; maiúscula e
+    <p class="note" id="i18n-note-tabela">Acentos são removidos antes da substituição; maiúscula e
     minúscula usam o mesmo símbolo. Vírgula, ponto, apóstrofo e hífen atravessam
     a cifra sem mudar. <code>k</code>, <code>w</code> e <code>z</code> não ocorrem
     no soneto de Mallarmé, então não têm símbolo atestado.</p>
   </section>
 
   <section id="resultado">
-    <h2>Resultado</h2>
+    <h2 id="i18n-h2-resultado">Resultado</h2>
     <pre>$ ruby soneto_alfanumerico.rb
  1  100.0%  Le vierge, le vivace et le bel aujourd'hui
  2  100.0%  Va-t-il nous déchirer avec un coup d'aile ivre
@@ -340,8 +360,8 @@
 14   97.0%  Que vêt parmi l'exil inutile le Cygne.
 TOTAL: 509/512 caracteres coincidem (99.4%)</pre>
 
-    <h3>Os três caracteres que não fecham</h3>
-    <p>A tabela vale sem exceção nas 14 linhas — a transcrição é diplomática e
+    <h3 id="i18n-h3-tres">Os três caracteres que não fecham</h3>
+    <p id="i18n-p-tres">A tabela vale sem exceção nas 14 linhas — a transcrição é diplomática e
     reproduz a página de 1974 como ela está. Os 3 caracteres que não fecham são
     de <b>duas naturezas diferentes</b>, e vale não somá-los: dois são
     divergências do impresso em relação a Mallarmé (versos 10 e 14), e o
@@ -350,36 +370,36 @@ TOTAL: 509/512 caracteres coincidem (99.4%)</pre>
     três; e nenhuma das duas é comprovadamente &ldquo;erro&rdquo;.</p>
     <table class="stack">
       <thead>
-        <tr><th class="lineno">v.</th><th>Mallarmé</th><th>a cifra pede</th><th>a página imprime</th><th>o que a página diz</th></tr>
+        <tr><th class="lineno" id="i18n-th-v">v.</th><th>Mallarmé</th><th id="i18n-th-cifra">a cifra pede</th><th id="i18n-th-pagina">a página imprime</th><th id="i18n-th-diz">o que a página diz</th></tr>
       </thead>
       <tbody>
         <tr>
           <td class="lineno">4</td>
           <td data-label="Mallarmé">fui<b>!</b></td>
-          <td data-label="a cifra pede" class="cipher">;12!</td>
-          <td data-label="a página imprime" class="cipher">;12</td>
-          <td data-label="o que a página diz">o <code>!</code> não é impresso — não é lapso, é limite do alfabeto: o glifo <code>!</code> já está ocupado pela letra <b>b</b></td>
+          <td data-label="a cifra pede" id="i18n-dl-cifra-1" class="cipher">;12!</td>
+          <td data-label="a página imprime" id="i18n-dl-pagina-1" class="cipher">;12</td>
+          <td data-label="o que a página diz" id="i18n-dl-diz-1">o <code>!</code> não é impresso — não é lapso, é limite do alfabeto: o glifo <code>!</code> já está ocupado pela letra <b>b</b></td>
         </tr>
         <tr>
           <td class="lineno">10</td>
           <td data-label="Mallarmé"><b>Par</b> l'espace</td>
-          <td data-label="a cifra pede" class="cipher">&amp;A¢</td>
-          <td data-label="a página imprime" class="cipher">&amp;A&gt;</td>
-          <td data-label="o que a página diz">&ldquo;<b>Pas</b> l'espace&rdquo; — <code>&gt;</code> vale <b>s</b>, <code>¢</code> vale <b>r</b></td>
+          <td data-label="a cifra pede" id="i18n-dl-cifra-2" class="cipher">&amp;A¢</td>
+          <td data-label="a página imprime" id="i18n-dl-pagina-2" class="cipher">&amp;A&gt;</td>
+          <td data-label="o que a página diz" id="i18n-dl-diz-2">&ldquo;<b>Pas</b> l'espace&rdquo; — <code>&gt;</code> vale <b>s</b>, <code>¢</code> vale <b>r</b></td>
         </tr>
         <tr>
           <td class="lineno">14</td>
           <td data-label="Mallarmé"><b>parmi</b> l'exil</td>
-          <td data-label="a cifra pede" class="cipher">&amp;A¢72</td>
-          <td data-label="a página imprime" class="cipher">&amp;A¢72-</td>
-          <td data-label="o que a página diz">&ldquo;<b>parmit</b>&rdquo; — um <code>-</code> a mais, e <code>-</code> vale <b>t</b></td>
+          <td data-label="a cifra pede" id="i18n-dl-cifra-3" class="cipher">&amp;A¢72</td>
+          <td data-label="a página imprime" id="i18n-dl-pagina-3" class="cipher">&amp;A¢72-</td>
+          <td data-label="o que a página diz" id="i18n-dl-diz-3">&ldquo;<b>parmit</b>&rdquo; — um <code>-</code> a mais, e <code>-</code> vale <b>t</b></td>
         </tr>
       </tbody>
     </table>
-    <h3>O que as duas variantes dizem</h3>
-    <p>As duas divergências do impresso — versos 10 e 14 — não são equivalentes
+    <h3 id="i18n-h3-variantes">O que as duas variantes dizem</h3>
+    <p id="i18n-p-variantes-1">As duas divergências do impresso — versos 10 e 14 — não são equivalentes
     entre si, e a diferença entre elas é o dado mais interessante que sobra.</p>
-    <p><b>O verso 10 produz palavra francesa real.</b> <code>pas</code> é a
+    <p id="i18n-p-variantes-2"><b>O verso 10 produz palavra francesa real.</b> <code>pas</code> é a
     partícula de negação, e em uso elíptico, sem o <code>ne</code>, é corrente
     (&ldquo;Pas de problème&rdquo;, &ldquo;Pas moi&rdquo;). A linha lê
     &ldquo;<b>não o</b> espaço&rdquo; — não &ldquo;sem o espaço&rdquo;, que seria
@@ -391,7 +411,7 @@ TOTAL: 509/512 caracteres coincidem (99.4%)</pre>
     feminino concordando com <i>agonie</i> do verso 9, tem em <i>par l'espace</i>
     o seu agente — sem o <code>par</code>, o particípio fica sem agente e a
     sintaxe desanda.</p>
-    <p><b>O verso 14 produz não-palavra.</b> <i>parmit</i> não existe em francês.
+    <p id="i18n-p-variantes-3"><b>O verso 14 produz não-palavra.</b> <i>parmit</i> não existe em francês.
     Nem se trata de <i>permit</i>: este cifra como
     <span class="cipher">&amp;)¢72-</span>, a um único glifo do impresso — mas o
     glifo em questão é o da vogal, e nós o lemos: é <span class="cipher">A</span>
@@ -405,7 +425,7 @@ TOTAL: 509/512 caracteres coincidem (99.4%)</pre>
     sujeito posposto de <i>vêt</i>, e é <i>parmi l'exil inutile</i> que se
     interpõe entre verbo e sujeito, sustentando a inversão. Removida a
     preposição, nenhuma palavra vizinha salva a linha.</p>
-    <p>Daí a assimetria: o verso 10 tem cara de acidente <b>linguístico</b> —
+    <p id="i18n-p-variantes-4">Daí a assimetria: o verso 10 tem cara de acidente <b>linguístico</b> —
     alguém transcreveu Mallarmé errado, num ponto onde a negação é
     semanticamente carregada. O verso 14 tem cara de acidente <b>mecânico</b> —
     coluna repetida na perfuração, do mesmo tipo que produz
@@ -415,7 +435,7 @@ TOTAL: 509/512 caracteres coincidem (99.4%)</pre>
     duas variantes escolheria duas que funcionassem, e &ldquo;parmit&rdquo; não
     funciona em leitura alguma.</p>
 
-    <p class="note">Nenhuma das duas divergências é ambiguidade de leitura do scan. No verso 10,
+    <p class="note" id="i18n-note-forense">Nenhuma das duas divergências é ambiguidade de leitura do scan. No verso 10,
     o <span class="cipher">¢</span> desta impressora é um &ldquo;c&rdquo; cortado por
     barra e o <span class="cipher">&gt;</span> é um chevron: correlação de template
     do glifo contra glifos conhecidos da mesma página dá 0,69 para <span class="cipher">&gt;</span>
@@ -430,8 +450,8 @@ TOTAL: 509/512 caracteres coincidem (99.4%)</pre>
   </section>
 
   <section id="oquee">
-    <h2>O que isto é — e o que não é</h2>
-    <p>Isto é uma <b>reconstrução da camada de substituição</b>, obtida por
+    <h2 id="i18n-h2-oquee">O que isto é — e o que não é</h2>
+    <p id="i18n-oquee-p1">Isto é uma <b>reconstrução da camada de substituição</b>, obtida por
     engenharia reversa a partir da página publicada — não uma recuperação do
     programa Fortran/PL-1 original de Erthos, que não sobreviveu (ao menos não
     nas fontes que encontramos). Continuamos sem saber <i>como</i> Erthos chegou
@@ -439,26 +459,26 @@ TOTAL: 509/512 caracteres coincidem (99.4%)</pre>
     sido, escrevemos um <a href="https://github.com/rafapolo/erthos/blob/main/soneto_alfanumerico.f" target="_blank" rel="noopener">exercício
     hipotético em Fortran IV</a>, no estilo da época, que aplica a tabela
     recuperada; é nosso, não dele.</p>
-    <p>Também não encontramos, nas fontes disponíveis, nenhuma reconstrução
+    <p id="i18n-oquee-p2">Também não encontramos, nas fontes disponíveis, nenhuma reconstrução
     publicada anteriormente dessa transformação em código executável — pelo que
     conseguimos apurar, este é o primeiro decodificador funcional do Soneto
     Alfanumérico a circular publicamente. Ficamos felizes em ser corrigidos se
     isso não for exato.</p>
-    <p>Talvez tenhamos extrapolado esses acidentes encontrados, e tudo tenha
+    <p id="i18n-oquee-p3">Talvez tenhamos extrapolado esses acidentes encontrados, e tudo tenha
     partido apenas de uma má cópia do original. Mas, por acidente, isso cria
     um sentido ainda mais poético para esse cisne/signo, eternamente preso ao
     espaço entre o que quer dizer e o que diz.</p>
   </section>
 
   <section id="arquivos">
-    <h2>Arquivos deste repositório</h2>
+    <h2 id="i18n-h2-arquivos">Arquivos deste repositório</h2>
     <ul class="files">
-      <li><a href="https://github.com/rafapolo/erthos/blob/main/original.png" target="_blank" rel="noopener">original.png</a><span>Scan da página publicada em Código nº1 (1974).</span></li>
-      <li><a href="https://github.com/rafapolo/erthos/blob/main/poema.md" target="_blank" rel="noopener">poema.md</a><span>Transcrição do poema cifrado, lado a lado com Mallarmé.</span></li>
-      <li><a href="https://github.com/rafapolo/erthos/blob/main/DECIFRACAO.md" target="_blank" rel="noopener">DECIFRACAO.md</a><span>Documentação completa do processo, a tabela, as divergências e as fontes.</span></li>
-      <li><a href="https://github.com/rafapolo/erthos/blob/main/soneto_alfanumerico.rb" target="_blank" rel="noopener">soneto_alfanumerico.rb</a><span>Algoritmo em Ruby (encode/decode) e verificador automático.</span></li>
-      <li><a href="https://github.com/rafapolo/erthos/blob/main/soneto_alfanumerico.f" target="_blank" rel="noopener">soneto_alfanumerico.f</a><span>Reconstrução hipotética em Fortran IV, no estilo da época: como o programa de Erthos poderia ter sido.</span></li>
-      <li><a href="https://github.com/rafapolo/erthos/blob/main/README.md" target="_blank" rel="noopener">README.md</a><span>Visão geral do repositório.</span></li>
+      <li><a href="https://github.com/rafapolo/erthos/blob/main/original.png" target="_blank" rel="noopener">original.png</a><span id="i18n-file-1">Scan da página publicada em Código nº1 (1974).</span></li>
+      <li><a href="https://github.com/rafapolo/erthos/blob/main/poema.md" target="_blank" rel="noopener">poema.md</a><span id="i18n-file-2">Transcrição do poema cifrado, lado a lado com Mallarmé.</span></li>
+      <li><a href="https://github.com/rafapolo/erthos/blob/main/DECIFRACAO.md" target="_blank" rel="noopener">DECIFRACAO.md</a><span id="i18n-file-3">Documentação completa do processo, a tabela, as divergências e as fontes.</span></li>
+      <li><a href="https://github.com/rafapolo/erthos/blob/main/soneto_alfanumerico.rb" target="_blank" rel="noopener">soneto_alfanumerico.rb</a><span id="i18n-file-4">Algoritmo em Ruby (encode/decode) e verificador automático.</span></li>
+      <li><a href="https://github.com/rafapolo/erthos/blob/main/soneto_alfanumerico.f" target="_blank" rel="noopener">soneto_alfanumerico.f</a><span id="i18n-file-5">Reconstrução hipotética em Fortran IV, no estilo da época: como o programa de Erthos poderia ter sido.</span></li>
+      <li><a href="https://github.com/rafapolo/erthos/blob/main/README.md" target="_blank" rel="noopener">README.md</a><span id="i18n-file-6">Visão geral do repositório.</span></li>
     </ul>
   </section>
 
@@ -468,11 +488,11 @@ TOTAL: 509/512 caracteres coincidem (99.4%)</pre>
   </figure>
 
   <footer>
-    <p>Fontes: <a href="https://pt.wikipedia.org/wiki/Erthos_Albino_de_Souza">Erthos Albino de Souza — Wikipédia</a> ·
+    <p id="i18n-footer-fontes">Fontes: <a href="https://pt.wikipedia.org/wiki/Erthos_Albino_de_Souza">Erthos Albino de Souza — Wikipédia</a> ·
     <a href="https://revistaacrobata.com.br/acrobata/artigo/codigo-revista-codigo-site/">Revista Código — Revista Acrobata</a> ·
     <a href="https://revista.escaner.cl/node/714.html">Jorge Luiz Antonio, Escáner Cultural</a> ·
     lista completa em <a href="DECIFRACAO.md#7-fontes">DECIFRACAO.md</a>.</p>
-    <p>Código e documentação em <a href="https://github.com/rafapolo/erthos">github.com/rafapolo/erthos</a>.</p>
+    <p id="i18n-footer-repo">Código e documentação em <a href="https://github.com/rafapolo/erthos">github.com/rafapolo/erthos</a>.</p>
   </footer>
 
 </div>
@@ -514,6 +534,123 @@ TOTAL: 509/512 caracteres coincidem (99.4%)</pre>
     tr.innerHTML = '<td class="lineno">'+(i+1)+'</td><td>'+pair[0]+'</td><td class="cipher">'+pair[1]+'</td>';
     body.appendChild(tr);
   });
+</script>
+<script>
+(function(){
+  var EN = {
+    'i18n-subtitle': '<b>Erthos Albino de Souza</b> · <i>Código</i> magazine, no. 1 · Salvador, 1974',
+    'i18n-lede': 'In 1974, a Petrobras mining engineer turned a Mallarmé sonnet into a sequence of typewritten symbols, using Fortran and PL/1 as a poetic instrument. We recovered the table he used — and found out why, among so many possible poems, he chose this one.',
+    'i18n-h2-artefato': 'The artifact',
+    'i18n-fig-original': 'Scan of the page published in <i>Código</i> no. 1 (1974) — dot-matrix computer printout on ruled paper. Click to view full size.',
+    'i18n-h2-erthos': 'Who was Erthos',
+    'i18n-erthos-p1': '<b>Erthos Albino de Souza</b> (1932–2000) was a mining engineer from Bahia who worked at Petrobras and, in parallel, became one of the international pioneers of computer-made poetry. From the late 1960s on, influenced by Pedro Xisto’s experiments in Canada, he began using Fortran and PL/1 — numerical computation languages built for large corporations — as a poetic instrument, subjecting verbal text to processes of computation and combinatorics.',
+    'i18n-erthos-p2': 'He founded and single-handedly funded <i>Código</i> magazine, published in Salvador between 1974 and 1990 (12 issues), one of the leading outlets of Brazilian experimental poetry in the wake of <i>Noigandres</i> and <i>Invenção</i>, with contributions from Augusto de Campos and Décio Pignatari. Antonio Risério described the Alphanumeric Sonnet as a text in which letters and digits combine “on a permutational basis” within the classical form of the sonnet.',
+    'i18n-h2-mallarme': 'The poem behind it: the swan that is a sign',
+    'i18n-mallarme-p1': 'The source sonnet is <i>“Le vierge, le vivace et le bel aujourd’hui”</i> (1885), by Stéphane Mallarmé — sometimes referred to simply as “Le Cygne” by critics. It describes a swan trapped on a frozen lake: it wants to break free with a beat of its wings, but its feathers are caught in the transparent glacier. The poem reveals the cause of its imprisonment — it failed to sing in time of “the region where to live.” In the end, only a motionless ghost remains, clothed in “useless exile.”',
+    'i18n-note-cigno': 'Stéphane Mallarmé, “Le vierge, le vivace et le bel aujourd’hui” (1885) — French original in italics on the left, free Portuguese translation alongside. In the last line, “Cigno” is an intentional deviation from the Portuguese “Cisne” (swan) — a phonetic approximation of “Signo” (sign), echoing the <i>cygne/signe</i> pun discussed below.',
+    'i18n-card-cygne': 'swan — the bird trapped in the ice, unable to fly, a traditional symbol for the poet seized by creative paralysis.',
+    'i18n-card-signe': 'sign — a perfect homophone of <i>cygne</i> in French. The poem about a swan is, at the same time, a poem about the very nature of the linguistic sign, caught between what it means to say and what it manages to say.',
+    'i18n-note-tetrocadilho': 'This pun — <i>cygne/signe</i> — is pointed out by Mallarmé scholarship as central to the sonnet, not accidental (see sources at the end). That is probably why Erthos chose precisely this poem: a text already obsessed with the idea of language-trapped-in-sign was the perfect candidate to become, literally, a sequence of alphanumeric signs. The original poem’s “transparent glacier” gains a real-world equivalent — the substitution table that imprisons each letter in a fixed symbol.',
+    'i18n-h2-lado-a-lado': 'Side by side',
+    'i18n-th-soneto': 'Alphanumeric Sonnet (1974)',
+    'i18n-h2-processo': 'How we deciphered it',
+    'i18n-step-1': '<b>No OCR.</b> The special dot-matrix printer characters from 1974 (<span class="cipher">¢ ¬ &amp; | </span>) are systematically misread by generic OCR. We cropped and enlarged each of the 14 lines by hand.',
+    'i18n-step-2': '<b>Hypothesis: substitution, not permutation.</b> Comparing the first line with the opening of Mallarmé’s poem, the word order doesn’t change — only the appearance of each character does. That points to a monoalphabetic substitution cipher, not a scrambling of order.',
+    'i18n-step-3': '<b>Line-by-line alignment.</b> Each of the 14 lines was compared word by word with Mallarmé’s sonnet (normalized: no accents, no case distinction), noting the symbol corresponding to each letter — and using repeated letters as a consistency check for the table.',
+    'i18n-step-4': '<b>Algorithmic verification.</b> The resulting table was implemented in Ruby and automatically tested against the transcription of the entire page.',
+    'i18n-h2-tabela': 'The substitution table',
+    'i18n-note-tabela': 'Accents are stripped before substitution; uppercase and lowercase use the same symbol. Comma, period, apostrophe and hyphen pass through the cipher unchanged. <code>k</code>, <code>w</code> and <code>z</code> don’t occur in Mallarmé’s sonnet, so they have no attested symbol.',
+    'i18n-h2-resultado': 'Results',
+    'i18n-h3-tres': 'The three characters that don’t add up',
+    'i18n-p-tres': 'The table holds without exception across all 14 lines — the transcription is diplomatic and reproduces the 1974 page exactly as it is. The 3 characters that don’t add up are of <b>two different natures</b>, and it matters not to lump them together: two are divergences of the printed page from Mallarmé (lines 10 and 14), and the third isn’t anyone’s divergence — it’s the 23-symbol alphabet hitting its ceiling (line 4). The honest count is <b>two</b> divergences, not three; and neither one is demonstrably an “error.”',
+    'i18n-dl-diz-1': 'the <code>!</code> isn’t printed — it’s not a slip, it’s the alphabet hitting its limit: the <code>!</code> glyph is already taken by the letter <b>b</b>',
+    'i18n-dl-diz-2': '“<b>Pas</b> l’espace” — <code>&gt;</code> stands for <b>s</b>, <code>¢</code> stands for <b>r</b>',
+    'i18n-dl-diz-3': '“<b>parmit</b>” — one extra <code>-</code>, and <code>-</code> stands for <b>t</b>',
+    'i18n-h3-variantes': 'What the two variants say',
+    'i18n-p-variantes-1': 'The two divergences in the printed page — lines 10 and 14 — aren’t equivalent to each other, and the difference between them is the most interesting thing left standing.',
+    'i18n-p-variantes-2': '<b>Line 10 produces a real French word.</b> <code>pas</code> is the negative particle, and in elliptical use, without <code>ne</code>, it’s common usage (“Pas de problème”, “Pas moi”). The line reads “<b>not the</b> space” — not “without the space”, which would be <i>sans l’espace</i>: it’s negation of identity, not of privation. The problem is that it dismantles the architecture of the tercet. In Mallarmé, the agony <b>is</b> inflicted by the space (<i>par l’espace</i>) and <b>not</b> by the horror of the ground (<i>mais non l’horreur du sol</i>, l. 11); negating both sides collapses the antithesis the three lines are built on. And <i>infligée</i>, feminine agreeing with <i>agonie</i> in line 9, has its agent in <i>par l’espace</i> — without <code>par</code>, the participle is left without an agent and the syntax comes apart.',
+    'i18n-p-variantes-3': '<b>Line 14 produces a non-word.</b> <i>parmit</i> doesn’t exist in French. Nor is it <i>permit</i>: that would cipher as <span class="cipher">&amp;)¢72-</span>, a single glyph away from the printed text — but the glyph in question is the vowel, and we can read it: it’s <span class="cipher">A</span> (letter <b>a</b>), not <span class="cipher">)</span> (letter <b>e</b>). Besides, <i>permit</i> is the passé simple of <i>permettre</i>, “permitted”, not “permits” (which would be <i>permet</i> = <span class="cipher">&amp;)¢7)-</span>, two glyphs), and <i>“Que vêt permit l’exil”</i> would place two finite verbs in sequence. <i>parmi</i> is a structural piece: the <i>que</i> of line 14 picks up the <i>songe froid de mépris</i> of line 13 as its object, <i>le Cygne</i> is the postposed subject of <i>vêt</i>, and it’s <i>parmi l’exil inutile</i> that stands between verb and subject, sustaining the inversion. With the preposition removed, no neighboring word saves the line.',
+    'i18n-p-variantes-4': 'Hence the asymmetry: line 10 looks like a <b>linguistic</b> accident — someone transcribed Mallarmé wrong, at a point where the negation carries real semantic weight. Line 14 looks like a <b>mechanical</b> accident — a repeated punch column, the same kind that produces <span class="cipher">=A---26</span> for “va-t-il”. Two deviations of a different nature, which, without proving anything, weighs against the hypothesis of a single, deliberate design: whoever wanted to mark the poem with two variants would pick two that actually worked, and “parmit” doesn’t work under any reading.',
+    'i18n-note-forense': 'Neither divergence is a matter of scan-reading ambiguity. In line 10, this printer’s <span class="cipher">¢</span> is a “c” cut by a bar, and the <span class="cipher">&gt;</span> is a chevron: template correlation of the glyph against known glyphs from the same page scores 0.69 for <span class="cipher">&gt;</span> and 0.18 for <span class="cipher">¢</span>. In line 14, the stroke correlates 0.925 with the legitimate <span class="cipher">-</span> from the same line, matching width and ink density — it’s a glyph, not a smudge. And <span class="cipher">-</span> is the only ambiguous glyph in the whole table (it serves both <b>t</b> and the literal hyphen in “Va-t-il”), so the remaining character admits two readings: “parmit”, which isn’t a French word, or “parmi-”, with a suspended hyphen. Slip or intent, the printed page doesn’t let us decide — details in <a href="https://github.com/rafapolo/erthos/blob/main/DECIFRACAO.md" target="_blank" rel="noopener">DECIFRACAO.md</a>, section 3.5.',
+    'i18n-h2-oquee': 'What this is — and isn’t',
+    'i18n-oquee-p1': 'This is a <b>reconstruction of the substitution layer</b>, obtained by reverse engineering the published page — not a recovery of Erthos’s original Fortran/PL-1 program, which didn’t survive (at least not in the sources we found). We still don’t know <i>how</i> Erthos arrived at this particular 23-symbol table. To imagine what it might have looked like, we wrote a <a href="https://github.com/rafapolo/erthos/blob/main/soneto_alfanumerico.f" target="_blank" rel="noopener">hypothetical exercise in Fortran IV</a>, in the style of the era, that applies the recovered table; it’s ours, not his.',
+    'i18n-oquee-p2': 'We also found no previously published reconstruction of this transformation as working code in the available sources — as far as we could determine, this is the first functional decoder of the Alphanumeric Sonnet to circulate publicly. We’d be glad to be corrected if that isn’t accurate.',
+    'i18n-oquee-p3': 'Maybe we’ve read too much into these accidents, and it all started from nothing more than a bad copy of the original. But, by accident, that makes for an even more poetic sense of this swan/sign, eternally caught in the space between what it means to say and what it says.',
+    'i18n-h2-arquivos': 'Files in this repository',
+    'i18n-file-1': 'Scan of the page published in Código no. 1 (1974).',
+    'i18n-file-2': 'Transcription of the ciphered poem, side by side with Mallarmé.',
+    'i18n-file-3': 'Complete documentation of the process, the table, the divergences and the sources.',
+    'i18n-file-4': 'Ruby algorithm (encode/decode) and automatic verifier.',
+    'i18n-file-5': 'Hypothetical reconstruction in Fortran IV, in the style of the era: what Erthos’s program might have looked like.',
+    'i18n-file-6': 'Overview of the repository.',
+    'i18n-footer-fontes': 'Sources: <a href="https://pt.wikipedia.org/wiki/Erthos_Albino_de_Souza">Erthos Albino de Souza — Wikipedia</a> · <a href="https://revistaacrobata.com.br/acrobata/artigo/codigo-revista-codigo-site/">Revista Código — Revista Acrobata</a> · <a href="https://revista.escaner.cl/node/714.html">Jorge Luiz Antonio, Escáner Cultural</a> · full list in <a href="DECIFRACAO.md#7-fontes">DECIFRACAO.md</a>.',
+    'i18n-footer-repo': 'Code and documentation at <a href="https://github.com/rafapolo/erthos">github.com/rafapolo/erthos</a>.'
+  };
+
+  var LABEL_TEXT = {
+    v: {pt:'v.', en:'l.'},
+    cifra: {pt:'a cifra pede', en:'the cipher calls for'},
+    pagina: {pt:'a página imprime', en:'the page prints'},
+    diz: {pt:'o que a página diz', en:'what the page says'}
+  };
+  var TH_IDS = {'i18n-th-v':'v', 'i18n-th-cifra':'cifra', 'i18n-th-pagina':'pagina', 'i18n-th-diz':'diz'};
+  var DATA_LABEL_IDS = {
+    'i18n-dl-cifra-1':'cifra', 'i18n-dl-pagina-1':'pagina', 'i18n-dl-diz-1':'diz',
+    'i18n-dl-cifra-2':'cifra', 'i18n-dl-pagina-2':'pagina', 'i18n-dl-diz-2':'diz',
+    'i18n-dl-cifra-3':'cifra', 'i18n-dl-pagina-3':'pagina', 'i18n-dl-diz-3':'diz'
+  };
+
+  var PT = {};
+  Object.keys(EN).forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) PT[id] = el.innerHTML;
+  });
+
+  var htmlEl = document.documentElement;
+  var titleEl = document.querySelector('title');
+  var metaDesc = document.querySelector('meta[name="description"]');
+  var PT_TITLE = titleEl.textContent;
+  var EN_TITLE = 'Alphanumeric Sonnet — Erthos Albino de Souza (1974)';
+  var PT_DESC = metaDesc.getAttribute('content');
+  var EN_DESC = 'Decipherment and documentation of the Alphanumeric Sonnet by Erthos Albino de Souza (Código no. 1, 1974), a cipher of Mallarmé’s sonnet.';
+
+  function setLang(lang){
+    Object.keys(EN).forEach(function(id){
+      var el = document.getElementById(id);
+      if(!el) return;
+      el.innerHTML = lang === 'en' ? EN[id] : PT[id];
+    });
+    Object.keys(TH_IDS).forEach(function(id){
+      var el = document.getElementById(id);
+      if(!el) return;
+      var key = TH_IDS[id];
+      el.textContent = lang === 'en' ? LABEL_TEXT[key].en : LABEL_TEXT[key].pt;
+    });
+    Object.keys(DATA_LABEL_IDS).forEach(function(id){
+      var el = document.getElementById(id);
+      if(!el) return;
+      var key = DATA_LABEL_IDS[id];
+      el.setAttribute('data-label', lang === 'en' ? LABEL_TEXT[key].en : LABEL_TEXT[key].pt);
+    });
+    htmlEl.setAttribute('lang', lang === 'en' ? 'en' : 'pt-BR');
+    titleEl.textContent = lang === 'en' ? EN_TITLE : PT_TITLE;
+    metaDesc.setAttribute('content', lang === 'en' ? EN_DESC : PT_DESC);
+    document.querySelectorAll('.lang-btn').forEach(function(b){
+      var active = b.getAttribute('data-lang') === lang;
+      b.classList.toggle('is-active', active);
+      b.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+    try{ localStorage.setItem('erthos-lang', lang); }catch(e){}
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(function(b){
+    b.addEventListener('click', function(){ setLang(b.getAttribute('data-lang')); });
+  });
+
+  var saved;
+  try{ saved = localStorage.getItem('erthos-lang'); }catch(e){}
+  if(saved === 'en') setLang('en');
+})();
 </script>
 </body>
 </html>
