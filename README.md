@@ -27,7 +27,7 @@ deste repositório — ou abra [`index.html`](./index.html) direto no navegador)
 | [`DECIFRACAO.md`](./DECIFRACAO.md) | Documentação completa: quem foi Erthos, o processo de decifração linha a linha, a tabela de substituição, os resultados e a alusão ao cisne/signo de Mallarmé. |
 | [`soneto_alfanumerico.rb`](./soneto_alfanumerico.rb) | Algoritmo em Ruby (`encode`/`decode`) que reproduz a cifra e verifica o resultado contra a página publicada. |
 | [`index.html`](./index.html) | Página única que reúne tudo isso visualmente. |
-| [`poema-original.steganos.png`](./poema-original.steganos.png), [`alfanumerico.steganos.png`](./alfanumerico.steganos.png) | Os dois poemas (o de Mallarmé e o de Erthos) re-codificados como imagem, com [`steganos`](https://github.com/rafapolo/steganos) — nossa própria camada de poesia codificada, em homenagem ao gesto de Erthos. Gerados com [`steganos_pure.rb`](./steganos_pure.rb) (reimplementação do algoritmo original em Ruby puro, sem dependências). |
+| <img src="./poema-original.steganos.png" alt="poema-original.steganos.png" width="80"> <img src="./alfanumerico.steganos.png" alt="alfanumerico.steganos.png" width="80"> | Os dois poemas (o de Mallarmé e o de Erthos) re-codificados como imagem, com [`steganos`](https://github.com/rafapolo/steganos) — nossa própria camada de poesia codificada, em homenagem ao gesto de Erthos. Gerados com [`steganos_pure.rb`](./steganos_pure.rb) (reimplementação do algoritmo original em Ruby puro, sem dependências). |
 
 ## O achado, resumido
 
