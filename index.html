@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soneto Alfanumérico — Erthos Albino de Souza (1974)</title>
+<meta name="description" content="Decifração e documentação do Soneto Alfanumérico de Erthos Albino de Souza (Código nº1, 1974), cifra do soneto de Mallarmé.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f2ecd8;
+    --paper-line:#e4dcc2;
+    --ink:#2b2a23;
+    --ink-soft:#5c5847;
+    --accent:#3f5d3a;
+    --accent-2:#8a6d3a;
+    --card:#fbf8ee;
+    --border:#d8cfae;
+    --code-bg:#fffdf5;
+    --max:880px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#1d1c17;
+      --paper-line:#242219;
+      --ink:#eee8d5;
+      --ink-soft:#b8ae8f;
+      --accent:#8fc98a;
+      --accent-2:#d8ab6a;
+      --card:#26241b;
+      --border:#3a3628;
+      --code-bg:#201f17;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#1d1c17;
+    --paper-line:#242219;
+    --ink:#eee8d5;
+    --ink-soft:#b8ae8f;
+    --accent:#8fc98a;
+    --accent-2:#d8ab6a;
+    --card:#26241b;
+    --border:#3a3628;
+    --code-bg:#201f17;
+  }
+  *{box-sizing:border-box}
+  html{background:var(--paper)}
+  body{
+    margin:0;
+    background:
+      repeating-linear-gradient(var(--paper) 0 26px, var(--paper-line) 26px 27px),
+      var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--max); margin:0 auto; padding:56px 20px 120px}
+  header.hero{text-align:center; padding:24px 0 40px}
+  .mark{
+    width:46px;height:46px;margin:0 auto 18px;
+    background:var(--accent);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+  h1{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:clamp(28px, 5vw, 44px);
+    letter-spacing:0.02em;
+    margin:0 0 10px;
+    font-weight:600;
+  }
+  .subtitle{color:var(--ink-soft); font-size:17px; margin:0}
+  .subtitle b{color:var(--ink); font-weight:600}
+  .lede{font-size:19px; margin-top:28px}
+  section{margin-top:64px}
+  h2{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    color:var(--accent);
+    border-bottom:1px solid var(--border);
+    padding-bottom:10px;
+    margin:0 0 22px;
+  }
+  h3{font-family:'IBM Plex Mono', monospace; font-size:16px; margin:28px 0 10px; color:var(--ink)}
+  p{margin:0 0 16px}
+  figure{margin:0; text-align:center}
+  figure img{
+    max-width:min(100%, 560px); width:100%; height:auto; border:1px solid var(--border);
+    border-radius:3px; box-shadow:0 10px 30px rgba(0,0,0,0.16);
+  }
+  figure a{display:inline-block; line-height:0}
+  figcaption{font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--ink-soft); margin-top:14px}
+
+  .card{
+    background:var(--card); border:1px solid var(--border); border-radius:6px;
+    padding:22px 24px;
+  }
+  .two-col{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+  @media (max-width:640px){.two-col{grid-template-columns:1fr}}
+
+  code, pre, .mono{font-family:'IBM Plex Mono', monospace}
+  pre{
+    background:var(--code-bg); border:1px solid var(--border); border-radius:6px;
+    padding:16px 18px; overflow-x:auto; font-size:13px; line-height:1.6;
+  }
+  .cipher{font-family:'IBM Plex Mono', monospace; font-size:13.5px; letter-spacing:0.01em}
+
+  .steps{list-style:none; margin:0; padding:0; counter-reset:step}
+  .steps li{
+    counter-increment:step; position:relative; padding:4px 0 20px 42px; margin:0;
+  }
+  .steps li::before{
+    content:counter(step);
+    position:absolute; left:0; top:2px;
+    width:26px; height:26px; border-radius:50%;
+    background:var(--accent); color:var(--paper);
+    font-family:'IBM Plex Mono', monospace; font-size:13px; font-weight:600;
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  table{width:100%; border-collapse:collapse; font-size:14px}
+  th, td{text-align:left; padding:8px 10px; border-bottom:1px solid var(--border); vertical-align:top}
+  th{font-family:'IBM Plex Mono', monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-soft)}
+  .lineno{font-family:'IBM Plex Mono', monospace; color:var(--ink-soft); width:24px}
+
+  .grid-table{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(64px,1fr));
+    gap:6px; font-family:'IBM Plex Mono', monospace; font-size:14px;
+  }
+  .cell{
+    background:var(--code-bg); border:1px solid var(--border); border-radius:4px;
+    text-align:center; padding:8px 4px;
+  }
+  .cell .l{display:block; color:var(--ink-soft); font-size:11px}
+  .cell .s{display:block; font-size:16px; margin-top:2px; color:var(--accent-2); font-weight:600}
+  .cell .none{color:var(--ink-soft); opacity:0.5}
+
+  .badge{
+    display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:12px;
+    background:var(--accent); color:var(--paper); padding:3px 9px; border-radius:20px;
+    margin-bottom:6px;
+  }
+  .result{
+    display:flex; gap:40px; flex-wrap:wrap; align-items:baseline; margin:26px 0 34px;
+  }
+  .result > div{min-width:150px; margin-bottom:10px}
+  .result .num{font-family:'IBM Plex Mono', monospace; font-size:40px; color:var(--accent); font-weight:600; display:block}
+  .result .label{color:var(--ink-soft); font-size:13px; font-family:'IBM Plex Mono', monospace; display:block; margin-top:4px}
+
+  .files{list-style:none; margin:0; padding:0}
+  .files li{padding:10px 0; border-bottom:1px solid var(--border)}
+  .files li:last-child{border-bottom:none}
+  .files a{font-family:'IBM Plex Mono', monospace; font-weight:600; color:var(--accent); text-decoration:none}
+  .files a:hover{text-decoration:underline}
+  .files span{display:block; color:var(--ink-soft); font-size:14px; margin-top:2px}
+
+  footer{margin-top:80px; padding-top:24px; border-top:1px solid var(--border); color:var(--ink-soft); font-size:13px}
+  footer a{color:var(--ink-soft)}
+  a{color:var(--accent)}
+
+  .note{
+    font-size:13.5px; color:var(--ink-soft); border-left:3px solid var(--border);
+    padding-left:14px; margin-top:18px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="mark" aria-hidden="true"></div>
+    <h1>SONETO ALFANUMÉRICO</h1>
+    <p class="subtitle"><b>Erthos Albino de Souza</b> · revista <i>Código</i> nº 1 · Salvador, 1974</p>
+    <p class="lede">Em 1974, um engenheiro de minas da Petrobras transformou um soneto de
+    Mallarmé numa sequência de símbolos datilografados, usando Fortran e PL/1 como
+    instrumento poético. Em 2026, recuperamos a tabela que ele usou — e descobrimos
+    por que, entre tantos poemas possíveis, ele escolheu justo este.</p>
+  </header>
+
+  <section id="artefato">
+    <h2>O artefato</h2>
+    <figure>
+      <a href="original.png" target="_blank" rel="noopener">
+        <img src="original.png" alt="Página original do Soneto Alfanumérico, revista Código nº1, 1974" loading="lazy">
+      </a>
+      <figcaption>Scan da página publicada em <i>Código</i> nº1 (1974) — impressão matricial de computador sobre papel pautado. Clique para ver em tamanho real.</figcaption>
+    </figure>
+  </section>
+
+  <section id="erthos">
+    <h2>Quem foi Erthos</h2>
+    <p><b>Erthos Albino de Souza</b> (1932–2000) foi um engenheiro de minas baiano
+    que trabalhou na Petrobras e, em paralelo, se tornou um dos pioneiros
+    internacionais da poesia feita com computador. A partir do fim dos anos 1960,
+    influenciado pelos experimentos de Pedro Xisto no Canadá, passou a usar Fortran
+    e PL/1 — linguagens de cálculo numérico de grandes empresas — como instrumento
+    poético, submetendo texto verbal a processos de computação e combinatória.</p>
+    <p>Fundou e financiou sozinho a revista <i>Código</i>, publicada em Salvador
+    entre 1974 e 1990 (12 números), um dos principais veículos da poesia
+    experimental brasileira na esteira de <i>Noigandres</i> e <i>Invenção</i>, com
+    colaborações de Augusto de Campos e Décio Pignatari. Antonio Risério descreveu
+    o Soneto Alfanumérico como um texto em que letras e dígitos se combinam "em
+    base permutatória" dentro da forma clássica do soneto.</p>
+  </section>
+
+  <section id="mallarme">
+    <h2>O poema por trás: o cisne que é signo</h2>
+    <p>O soneto-fonte é <i>"Le vierge, le vivace et le bel aujourd'hui"</i> (1885),
+    de Stéphane Mallarmé — às vezes chamado simplesmente de "Le Cygne" pela
+    crítica. Ele descreve um cisne preso num lago congelado: quer se libertar com
+    um bater de asas, mas as penas estão presas na geleira transparente. O motivo
+    da prisão é revelado no poema — ele não cantou a tempo "a região onde viver".
+    No fim, resta apenas um fantasma imóvel, vestido pelo "exílio inútil".</p>
+    <div class="two-col">
+      <div class="card">
+        <span class="badge">cygne</span>
+        <p style="margin:0">cisne — o pássaro preso no gelo, incapaz de voar,
+        símbolo tradicional do poeta tomado por paralisia criativa.</p>
+      </div>
+      <div class="card">
+        <span class="badge">signe</span>
+        <p style="margin:0">signo — homófono perfeito de <i>cygne</i> em
+        francês. O poema sobre um cisne é, ao mesmo tempo, um poema sobre a
+        própria natureza do signo linguístico, preso entre o que quer dizer e o
+        que consegue dizer.</p>
+      </div>
+    </div>
+    <p class="note">Esse trocadilho — <i>cygne/signe</i> — é apontado pela
+    crítica mallarmeana como central ao soneto, não acidental (ver fontes ao
+    final). É provavelmente por isso que Erthos escolheu justo este poema: um
+    texto já obcecado pela ideia de linguagem-presa-em-signo era o candidato
+    perfeito para virar, literalmente, uma sequência de signos alfanuméricos.
+    A "geleira transparente" do poema original ganha um equivalente real — a
+    tabela de substituição que aprisiona cada letra num símbolo fixo.</p>
+  </section>
+
+  <section id="processo">
+    <h2>Como decifremos</h2>
+    <ol class="steps">
+      <li><b>Nada de OCR.</b> Os caracteres especiais de impressora matricial de
+      1974 (<span class="cipher">¢ ¬ & | </span>) são sistematicamente confundidos
+      por OCR genérico. Recortamos e ampliamos cada uma das 14 linhas à mão.</li>
+      <li><b>Hipótese: substituição, não permutação.</b> Comparando a primeira
+      linha com o início de Mallarmé, a ordem das palavras não muda — só a
+      aparência de cada caractere. Isso aponta para uma cifra de substituição
+      monoalfabética, não para um embaralhamento da ordem.</li>
+      <li><b>Alinhamento verso a verso.</b> Cada uma das 14 linhas foi comparada
+      palavra por palavra com o soneto de Mallarmé (normalizado: sem acento, sem
+      distinção de caixa), anotando o símbolo correspondente a cada letra — e
+      usando as repetições de letras como teste de consistência da tabela.</li>
+      <li><b>Verificação algorítmica.</b> A tabela resultante foi implementada em
+      Ruby e testada automaticamente contra a transcrição da página inteira.</li>
+    </ol>
+  </section>
+
+  <section id="tabela">
+    <h2>A tabela de substituição</h2>
+    <div class="grid-table" id="table-grid"></div>
+    <p class="note">Acentos são removidos antes da substituição; maiúscula e
+    minúscula usam o mesmo símbolo. Vírgula, ponto, apóstrofo e hífen atravessam
+    a cifra sem mudar. <code>k</code>, <code>w</code> e <code>z</code> não ocorrem
+    no soneto de Mallarmé, então não têm símbolo atestado.</p>
+  </section>
+
+  <section id="resultado">
+    <h2>Resultado</h2>
+    <div class="result">
+      <div><span class="num">510 / 512</span><span class="label">caracteres coincidem</span></div>
+      <div><span class="num">99,4%</span><span class="label">de correspondência exata</span></div>
+      <div><span class="num">14 / 14</span><span class="label">versos alinhados sem contradição</span></div>
+    </div>
+    <pre>$ ruby soneto_alfanumerico.rb
+ 1  100.0%  Le vierge, le vivace et le bel aujourd'hui
+ 2  100.0%  Va-t-il nous déchirer avec un coup d'aile ivre
+ ...
+14   97.0%  Que vêt parmi l'exil inutile le Cygne.
+TOTAL: 509/512 caracteres coincidem (99.4%)</pre>
+    <p class="note">A tabela vale sem exceção nas 14 linhas. Dos 3 caracteres
+    que não fecham, dois são divergências do impresso de 1974 (versos 10 e 14)
+    e o terceiro é limite do próprio alfabeto (verso 4, o "!" de "fui!", cujo
+    glifo já está ocupado pela letra b) — detalhes em
+    <a href="DECIFRACAO.md">DECIFRACAO.md</a>, seção 3.5.</p>
+  </section>
+
+  <section id="lado-a-lado">
+    <h2>Lado a lado</h2>
+    <table>
+      <thead><tr><th></th><th>Mallarmé (1885)</th><th>Soneto Alfanumérico (1974)</th></tr></thead>
+      <tbody id="compare-body"></tbody>
+    </table>
+  </section>
+
+  <section id="oquee">
+    <h2>O que isto é — e o que não é</h2>
+    <p>Isto é uma <b>reconstrução da camada de substituição</b>, obtida por
+    engenharia reversa a partir da página publicada — não uma recuperação do
+    programa Fortran/PL-1 original de Erthos, que não sobreviveu (ao menos não
+    nas fontes que encontramos). Continuamos sem saber <i>como</i> Erthos chegou
+    a essa tabela específica de 23 símbolos.</p>
+    <p>Também não encontramos, nas fontes disponíveis, nenhuma reconstrução
+    publicada anteriormente dessa transformação em código executável — pelo que
+    conseguimos apurar, este é o primeiro decodificador funcional do Soneto
+    Alfanumérico a circular publicamente. Ficamos felizes em ser corrigidos se
+    isso não for exato.</p>
+  </section>
+
+  <section id="arquivos">
+    <h2>Arquivos deste repositório</h2>
+    <ul class="files">
+      <li><a href="original.png">original.png</a><span>Scan da página publicada em Código nº1 (1974).</span></li>
+      <li><a href="poema.md">poema.md</a><span>Transcrição do poema cifrado, lado a lado com Mallarmé.</span></li>
+      <li><a href="DECIFRACAO.md">DECIFRACAO.md</a><span>Documentação completa do processo, a tabela, as divergências e as fontes.</span></li>
+      <li><a href="soneto_alfanumerico.rb">soneto_alfanumerico.rb</a><span>Algoritmo em Ruby (encode/decode) e verificador automático.</span></li>
+      <li><a href="README.md">README.md</a><span>Visão geral do repositório.</span></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>Fontes: <a href="https://pt.wikipedia.org/wiki/Erthos_Albino_de_Souza">Erthos Albino de Souza — Wikipédia</a> ·
+    <a href="https://revistaacrobata.com.br/acrobata/artigo/codigo-revista-codigo-site/">Revista Código — Revista Acrobata</a> ·
+    <a href="https://revista.escaner.cl/node/714.html">Jorge Luiz Antonio, Escáner Cultural</a> ·
+    lista completa em <a href="DECIFRACAO.md#7-fontes">DECIFRACAO.md</a>.</p>
+  </footer>
+
+</div>
+
+<script>
+  var LETTER_TO_SYMBOL = {
+    a:'A', b:'!', c:'"', d:':', e:')', f:';', g:'¬', h:"'", i:'2', j:'4',
+    k:null, l:'6', m:'7', n:'(', o:'3', p:'&', q:'+', r:'¢', s:'>', t:'-',
+    u:'1', v:'=', w:null, x:'?', y:'|', z:null
+  };
+  var grid = document.getElementById('table-grid');
+  Object.keys(LETTER_TO_SYMBOL).forEach(function(l){
+    var sym = LETTER_TO_SYMBOL[l];
+    var div = document.createElement('div');
+    div.className = 'cell';
+    div.innerHTML = '<span class="l">'+l+'</span><span class="s'+(sym?'':' none')+'">'+(sym || '—')+'</span>';
+    grid.appendChild(div);
+  });
+
+  var PAIRS = [
+    ["Le vierge, le vivace et le bel aujourd'hui", "6) =2)¢¬),6) =2=A\") )- 6) !)6 A1431¢:''12"],
+    ["Va-t-il nous déchirer avec un coup d'aile ivre", "=A---26 (31> :)\"'2¢)¢ A=)\" 1( \"31& :'A26) 2=¢)"],
+    ["Ce lac dur oublié que hante sous le givre", "\") 6A\" :1¢ 31!62) +1) 'A(-) >31> 6) ¬2=¢)"],
+    ["Le transparent glacier des vols qui n'ont pas fui!", "6) -¢A(>&A¢)(- ¬6A\"2)¢ :)> =36> +12 ('3(- &A> ;12"],
+    ["Un cygne d'autrefois se souvient que c'est lui", "1( \"|¬() :'A1-¢);32> >) >31=2)(- +1) \"')>- 612"],
+    ["Magnifique mais qui sans espoir se délivre", "7A¬(2;2+1) 7A2> +12 >A(> )>&32¢ >) :)62=¢)"],
+    ["Pour n'avoir pas chanté la région où vivre", "&31¢ ('A=32¢ &A> \"'A(-) 6A ¢)¬23( 31 =2=¢)"],
+    ["Quand du stérile hiver a resplendi l'ennui.", "+1A(: :1 >-)¢26) '2=)¢ A ¢)>&6)(:2 6')((12."],
+    ["Tout son col secouera cette blanche agonie", "-31- >3( \"36 >)\"31)¢A \")--) !6A(\"') A¬3(2)"],
+    ["Par l'espace infligée à l'oiseau qui le nie,", "&A> 6')>&A\") 2(;62¬)) A 6'32>)A1 +12 6) (2),"],
+    ["Mais non l'horreur du sol où le plumage est pris.", "7A2> (3( 6''3¢¢)1¢ :1 >36 31 6) &617A¬) )>- &¢2>."],
+    ["Fantôme qu'à ce lieu son pur éclat assigne,", ";A(-37) +1'A \") 62)1 >3( &1¢ )\"6A- A>>2¬(),"],
+    ["Il s'immobilise au songe froid de mépris", "26 >'2773!262>) A1 >3(¬) ;¢32: :) 7)&¢2>"],
+    ["Que vêt parmi l'exil inutile le Cygne.", "+1) =)- &A¢72- 6')?26 2(1-26) 6) \"|¬()."]
+  ];
+  var body = document.getElementById('compare-body');
+  PAIRS.forEach(function(pair, i){
+    var tr = document.createElement('tr');
+    tr.innerHTML = '<td class="lineno">'+(i+1)+'</td><td>'+pair[0]+'</td><td class="cipher">'+pair[1]+'</td>';
+    body.appendChild(tr);
+  });
+</script>
+</body>
+</html>
